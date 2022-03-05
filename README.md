@@ -1,5 +1,5 @@
 # pyCET_demo
 
-# Usage
-# Lincese
+## Usage
+## License
 Mit
