@@ -6,7 +6,7 @@
 Overview of pyCET
 --------
 
-* **The First Steel Memmber/Connection Calcution API in the World** pyCET is the set of python APIs to do member/connection caclcuations and create Markdown reports. So far pyCET concentrates on AISC 14th manumul and will cover AISC 15th and later versions. 
+* **The First Steel Member/Connection Calcution API in the World** pyCET is the set of python APIs to do member/connection caclcuations and create Markdown reports. So far pyCET concentrates on AISC 14th manumul and will cover AISC 15th and later versions. 
 
 * **Create Perfessional Calcuations** pyCET creates equstions in Latex and drawings in SVG format (under development).
 
@@ -40,4 +40,36 @@ Before installation of pyCET
 Install pyCET
 --------
 1. Login into google colab, https://colab.research.google.com/
-2. 
+
+2. Connect to google drive by running following code (user can access results without login to google colab)
+```python
+from google.colab import drive
+drive.mount('/content/drive')
+```
+
+3. create a shell
+```python
+!pip install google-colab-shell
+from google_colab_shell import getshell
+getshell(height=200) # custom height of the terminal
+```
+
+4. In the shell craete a working directory
+```shell
+cd /content/drive/MyDrive
+mkdir my_project
+cd my_project
+```
+
+5. Colone pyCET_demo repo
+```shell
+git clone https://github.com/CivilEngrTools/pyCET_demo.git
+```
+
+6. Test if pyCET_demo is working
+```shell
+cd pyCET_demo/src_pyc
+printf "import CET_MODULE\nprint(CET_MODULE.version())\n" > test.py
+python test.py
+```
+Now "0.01" is printing in terminial
