@@ -66,10 +66,90 @@ cd my_project
 git clone https://github.com/CivilEngrTools/pyCET_demo.git
 ```
 
-6.In the shell, test if pyCET_demo is working
+6. In the shell, test if pyCET_demo is working
 ```shell
 cd pyCET_demo/src_pyc
 printf "import CET_MODULE\nprint(CET_MODULE.version())\n" > test.py
 python test.py
 ```
 Now "0.01" is printing in terminial
+
+First example of pyCET_demo
+--------
+
+1. In google colab create a notebook by menu: File -> New notebook
+2. Menu: File -> Save a copy in Drive
+3. Use google colab file "Files" pannel (left side), rename drive/MyDrive/Colab Notebooks/Copy of Untitled0.ipynb as drive/MyDrive/Colab Notebooks/my_project.ipynb
+4. Menu: File -> Open Notebook. Select the "Google Drive" tab and my_project.ipynb.
+5. Connection to google drive again.
+```python
+from google.colab import drive
+drive.mount('/content/drive')
+```
+6. Inside my_project.ipynb, type
+
+```python
+% cd /content/drive/MyDrive/my_project/
+import copy
+import sys
+
+sys.path.append("./pyCET_demo")
+sys.path.append("./pyCET_demo/src_pyc")
+
+from src_pyc.connection import Connection
+from src.civil_engr_tool import check_shear_yield
+from src.civil_engr_tool import check_shear_rupture
+from src.civil_engr_tool import init_tool
+from src.report import Report
+
+from src.calculation import Calculation
+
+common_data = {
+    "design method": "ASD",
+    "code": "AISC 14th"
+}
+
+init_tool(common_data)
+
+web_conn = Connection()
+web_conn.set_default("web conn")
+web_conn.grade = "A36"
+web_conn.Fy = 36
+web_conn.Fu = 58
+web_conn.length = 11.5
+web_conn.thickness = 0.25
+web_conn.check_force = 33.0
+
+# pass data to the CET_MODULE 
+web_conn.set_data()
+shear_yield = check_shear_yield()
+
+print(shear_yield['result'])
+print(shear_yield['equations'][0]['content'])
+```
+
+Now the results will be printed as 
+
+```text
+/content/drive/MyDrive/my_project
+41.39999999999999
+$$
+\begin{align}
+\frac{R_{n}}{\Omega} & = \frac{1}{\Omega} 0.6 F_y A_g \\
+  & = \frac{1}{1.5}(0.6)(36 \text{ ksi} )(11.5 \text{ in.} )(0.25 \text{ in.} ) \\
+  & = 41.4 \text{ kips} \tag{AISC Equ. J4-3}>33 \text{ kips}  \text{ O.K.}
+\end{align}
+$$
+```
+41.4 kips is the shear yield capacity of the plate. For the detailed calcualations, users can create a new Text cell and paste as
+
+```text
+%%latex
+$$
+\begin{align}
+\frac{R_{n}}{\Omega} & = \frac{1}{\Omega} 0.6 F_y A_g \\
+  & = \frac{1}{1.5}(0.6)(36 \text{ ksi} )(11.5 \text{ in.} )(0.25 \text{ in.} ) \\
+  & = 41.4 \text{ kips} \tag{AISC Equ. J4-3}>33 \text{ kips}  \text{ O.K.}
+\end{align}
+$$
+```
