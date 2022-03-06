@@ -37,7 +37,7 @@ Before installation of pyCET_demo
 
 * If you want to use pyCET_demo with VSCode (highly recommmented), please finish setup by following https://github.com/WassimBenzarti/colab-ssh
 
-Install pyCET_deom
+Install pyCET_demo
 --------
 1. Login into google colab, https://colab.research.google.com/
 
