@@ -61,12 +61,12 @@ mkdir my_project
 cd my_project
 ```
 
-5. Colone pyCET_demo repo
+5. In the shell, clone pyCET_demo repo
 ```shell
 git clone https://github.com/CivilEngrTools/pyCET_demo.git
 ```
 
-6. Test if pyCET_demo is working
+6.In the shell, test if pyCET_demo is working
 ```shell
 cd pyCET_demo/src_pyc
 printf "import CET_MODULE\nprint(CET_MODULE.version())\n" > test.py
