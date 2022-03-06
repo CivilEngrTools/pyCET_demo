@@ -31,30 +31,30 @@ Overview of pyCET_demo
 * **Web Host** pyCET_demo only runs inside google colab. pyCET could run udner Windows/Linux/Macos.
 
 
-Before installation of pyCET
+Before installation of pyCET_demo
 --------
 * User needs a google acount;
 
 * If you want to use pyCET_demo with VSCode (highly recommmented), please finish setup by following https://github.com/WassimBenzarti/colab-ssh
 
-Install pyCET
+Install pyCET_deom
 --------
 1. Login into google colab, https://colab.research.google.com/
 
-2. Connect to google drive by running following code (user can access results without login to google colab)
+2. In the code cell, connect to google drive by running following code (user can access results without login to google colab)
 ```python
 from google.colab import drive
 drive.mount('/content/drive')
 ```
 
-3. create a shell
+3. In the code cell, create a shell
 ```python
 !pip install google-colab-shell
 from google_colab_shell import getshell
 getshell(height=200) # custom height of the terminal
 ```
 
-4. In the shell craete a working directory
+4. In the shell, craete a working directory
 ```shell
 cd /content/drive/MyDrive
 mkdir my_project
