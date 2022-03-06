@@ -1,11 +1,9 @@
 # pyCET_demo
 
-### The demostrions of the power of **pyCET** software.
+### To demonstrate of the power of **pyCET** software.
+--------
 
-
-# pyCET 
-
-Overview
+Overview of pyCET
 --------
 
 * **The First Steel Memmber/Connection Calcution API in the World** pyCET is the set of python APIs to do member/connection caclcuations and create Markdown reports. So far pyCET concentrates on AISC 14th manumul and will cover AISC 15th and later versions. 
@@ -16,15 +14,30 @@ Overview
 
 * **Developed and Maintained by Professionals** pyCET is developed and maintained by professional engineers across the world.
 
-Facts
+* **Not Open Source Software** But the price is very reasonable, under 1k per seat per year. Please contact civilengrtools@gmail.com if you want to buy. 
+
+* **Still Under Development** We are planning to finish most funtionalities by the end of 2024.
+
+Overview of pyCET_demo
 --------
+* **Demo Version of pyCET** pyCET_demo itself is open-source. However, files under src_pyc are compiled/binary files.
 
-* **pyCET is not Open Source Software** But the price is very reasonable, under 1k per seat per year. Please contact civilengrtools@gmail.com if you want to buy. 
+* **Limits** pyCET_demo only supports follwing beam/column and loads combiniations. If member size or laods are not in following table, pyCET_demo will use arbitary values and the calulations are not correct.
 
-* **pyCET is Still Under Development** We are planning to finish most funtionalities by the end of 2024.
+| Beam Size | Column Size | Shear Force | Moment | Comments |
+| --- | :-- | --: | :-: |:-: |
+| W16X50 |  | 33 kips |  | AISC_14th_Example_IIA-17 |
 
-# pyCET_demo 
+* **Web Host** pyCET_demo only runs inside google colab. pyCET could run udner Windows/Linux/Macos.
 
-How to use
+
+Before installation of pyCET
 --------
+* User needs a google acount;
 
+* If you want to use pyCET_demo with VSCode (highly recommmented), please finish setup by following https://github.com/WassimBenzarti/colab-ssh
+
+Install pyCET
+--------
+1. Login into google colab, https://colab.research.google.com/
+2. 
