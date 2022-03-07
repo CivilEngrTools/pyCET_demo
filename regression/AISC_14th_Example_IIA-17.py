@@ -98,6 +98,19 @@ web_calc.add_item(loc_beam_web_conn, "Welds", check_weld(),
 web_calc.show_max_ratio_calc = True
 web_calc.find_max_ratio_index()
 report.content += "### 1 Summary\n"
+report.content += """ 
+To demonstrate the calcuations from AISC 14th Design Examples 
+II.A-17, SINGLE-PLATE CONNECTION (CONVENTIONALBEAM-TO-COLUMN FLANGE). Origianl information\n
+Given:\n
+Design a single-plate connection between an ASTM A992 W1650 beam and an ASTM A992 W1490 column
+flange to support the following beam end reactions:\n
+RD = 8.0 kips \n
+RL = 25 kips \n
+Rn = 33 kips (ASD method) \n
+Use 3/4-in.-diameter ASTM A325-N or F1852-N bolts in standard holes, 70-ksi electrode welds and an ASTM A36 plate \n
+"""
+report.content += "#### Capacity Table\n"
+
 report.content += "Beam Web\n"
 report.content += "| Limit State    | Design Value | Check value | Ratio | Check Result | Reference |\n"
 report.content += "|----------------|-------|-------------|-------|-------|-------|\n"

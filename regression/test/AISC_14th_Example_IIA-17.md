@@ -1,4 +1,22 @@
 ### 1 Summary
+ 
+To demonstrate the calcuations from AISC 14th Design Examples 
+II.A-17, SINGLE-PLATE CONNECTION (CONVENTIONALBEAM-TO-COLUMN FLANGE). Origianl information
+
+Given:
+
+Design a single-plate connection between an ASTM A992 W1650 beam and an ASTM A992 W1490 column
+flange to support the following beam end reactions:
+
+RD = 8.0 kips 
+
+RL = 25 kips 
+
+Rn = 33 kips (ASD method) 
+
+Use 3/4-in.-diameter ASTM A325-N or F1852-N bolts in standard holes, 70-ksi electrode welds and an ASTM A36 plate 
+
+#### Capacity Table
 Beam Web
 | Limit State    | Design Value | Check value | Ratio | Check Result | Reference |
 |----------------|-------|-------------|-------|-------|-------|
