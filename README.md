@@ -80,7 +80,8 @@ First example: Basic of pyCET_demo
 1. In google colab create a notebook by menu: File -> New notebook
 2. Menu: File -> Save a copy in Drive
 3. Use google colab file "Files" pannel (left side), rename drive/MyDrive/Colab Notebooks/Copy of Untitled0.ipynb as drive/MyDrive/Colab Notebooks/my_project.ipynb
-4. Menu: File -> Open Notebook. Select the "Google Drive" tab and my_project.ipynb.
+4. Menu: File -> Open Notebook. Select the "Google Drive" tab and my_project.ipynb. The notebook will like this
+![colab](https://user-images.githubusercontent.com/100242816/157124568-aef64b35-e846-434d-9674-5e9a4832edd4.JPG)
 5. Connection to google drive again.
 ```python
 from google.colab import drive
