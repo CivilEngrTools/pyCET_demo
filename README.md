@@ -158,7 +158,7 @@ And the equation will be rendered as
 
 ![shear yield](https://user-images.githubusercontent.com/100242816/156947976-7e1eb46d-c5d1-4309-bb6d-86458eaae044.JPG)
 
-Second example: desing connection by pyCET
+Second example: design connection by pyCET
 --------
 
 This example is to show how to use pyCET to design a connection. pyCET itself is a caluction software. But it is very powerful and the users could use it for more complicate calculations and designs.
@@ -229,3 +229,34 @@ print(shear_rupture['equations'][0]['content'])
 ```
 
 Above code find 0.25 inch as plate thickness and 0.5 inch as bolt diameter. Comparing to AISC 14th Example II-17, the bolt diamter is smaller because we only check shear yield and shear ruputer of the plate.
+
+Third example: AISC 14th Design Example II.A-17
+--------
+
+The source code are in ./regression/AISC_14th_Example_IIA-17.py. If users want to run outside of regression folder, following code could be changed:
+
+```python
+sys.path.append("./pyCET_demo")
+sys.path.append("./pyCET_demo/src_pyc")
+```
+
+Then AISC_14th_Example_IIA-17.py will generate a Markdown file. It is highly recommended to use [Typora](https://typora.io/) to render the Markdown file. To align the equations to the left side, Typora users could make change to (aboule line 120)
+
+**resources/window.html**
+
+by adding
+
+```javascript
+window.MathJax = {
+  ....
+  svg: {
+    displayAlign: 'left',
+    scale: 0.9,
+    minScale: 80,
+  },
+...
+};
+
+```
+
+Users also could change the rendering scale.
