@@ -141,7 +141,7 @@ $$
 \end{align}
 $$
 ```
-41.4 kips is the shear yield capacity of the plate. For the detailed calcualations, users can create a new Text cell and paste as
+Note that shear_yield is a dict object. shear_yield['result'] will give the result as 41.4 kips, the shear yield capacity of the plate. shear_yield['equations'][0]['content'] is a list of equstions. For the detailed calcualations, users can create a new Text cell and paste as
 
 ```text
 %%latex
@@ -153,3 +153,8 @@ $$
 \end{align}
 $$
 ```
+And the equation will be rendered as 
+
+![shear yield](https://user-images.githubusercontent.com/100242816/156947976-7e1eb46d-c5d1-4309-bb6d-86458eaae044.JPG)
+
+
