@@ -233,14 +233,14 @@ Above code find 0.25 inch as plate thickness and 0.5 inch as bolt diameter. Comp
 Third example: AISC 14th Design Example II.A-17
 --------
 
-The source code are in ./regression/AISC_14th_Example_IIA-17.py. If users want to run outside of regression folder, following code could be changed:
+The source code are in ./regression/AISC_14th_Example_IIA-17.py and the generated file is ./regression/test/AISC_14th_Example_IIA-17.md. If users want to run outside of regression folder, following code could be changed:
 
 ```python
 sys.path.append("./pyCET_demo")
 sys.path.append("./pyCET_demo/src_pyc")
 ```
 
-Then AISC_14th_Example_IIA-17.py will generate a Markdown file. It is highly recommended to use [Typora](https://typora.io/) to render the Markdown file. To align the equations to the left side, Typora users could make change to (aboule line 120)
+It is highly recommended to use [Typora](https://typora.io/) to render the Markdown file, AISC_14th_Example_IIA-17.md. To align the equations to the left side, Typora users could make change to (aboule line 120)
 
 **resources/window.html**
 
@@ -259,4 +259,7 @@ window.MathJax = {
 
 ```
 
-Users also could change the rendering scale.
+Users also could change the rendering scale. The final dispaly in Typora is:
+
+![shear yield](https://user-images.githubusercontent.com/100242816/157089471-176b8bbf-9419-429c-9af5-342b04453bc4.JPG)
+
