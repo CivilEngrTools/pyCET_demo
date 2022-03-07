@@ -74,7 +74,7 @@ python test.py
 ```
 Now "0.01" is printing in terminial
 
-First example of pyCET_demo
+First example: Basic of pyCET_demo
 --------
 
 1. In google colab create a notebook by menu: File -> New notebook
@@ -161,7 +161,7 @@ And the equation will be rendered as
 Second example: desing connection by pyCET
 --------
 
-This example is to show how to pyCET to design a connection. pyCET itself is a caluction software. But it is very powerful and the users could use it for more complicate calculations and designs.
+This example is to show how to use pyCET to design a connection. pyCET itself is a caluction software. But it is very powerful and the users could use it for more complicate calculations and designs.
 
 
 ```python
@@ -218,7 +218,7 @@ for dia in dia_list:
       if( shear_yield['result'] > web_conn.check_force 
         and shear_rupture['result'] > web_conn.check_force ):
         found = True
-        break;
+        break
 
 # call again to make sure the equations are created
 web_conn.set_data()
@@ -228,4 +228,4 @@ print(shear_yield['equations'][0]['content'])
 print(shear_rupture['equations'][0]['content'])
 ```
 
-Now above code find 0.25 inch as plate thickness and 0.5 inch as bolt diameter. Comparing to AISC 14th Example II-17, the bolt diamter is smaller because we only check shear yield and shear ruputer of the plate.
+Above code find 0.25 inch as plate thickness and 0.5 inch as bolt diameter. Comparing to AISC 14th Example II-17, the bolt diamter is smaller because we only check shear yield and shear ruputer of the plate.
