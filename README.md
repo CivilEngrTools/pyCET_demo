@@ -98,7 +98,6 @@ sys.path.append("./pyCET_demo/src_pyc")
 
 from src_pyc.connection import Connection
 from src.civil_engr_tool import check_shear_yield
-from src.civil_engr_tool import check_shear_rupture
 from src.civil_engr_tool import init_tool
 from src.report import Report
 
@@ -109,9 +108,11 @@ common_data = {
     "code": "AISC 14th"
 }
 
+# Need to initialize the module
 init_tool(common_data)
 
 web_conn = Connection()
+# default as shear plate connection
 web_conn.set_default("web conn")
 web_conn.grade = "A36"
 web_conn.Fy = 36
@@ -141,7 +142,7 @@ $$
 \end{align}
 $$
 ```
-Note that shear_yield is a dict object. shear_yield['result'] will give the result as 41.4 kips, the shear yield capacity of the plate. shear_yield['equations'][0]['content'] is a list of equstions. For the detailed calcualations, users can create a new Text cell and paste as
+Note that shear_yield is a dict object. shear_yield['result'] will give the result as 41.4 kips, the shear yield capacity of the plate. shear_yield['equations'] is a list of equstions. For the detailed calcualations, users can create a new Text cell and paste as
 
 ```text
 %%latex
@@ -157,4 +158,74 @@ And the equation will be rendered as
 
 ![shear yield](https://user-images.githubusercontent.com/100242816/156947976-7e1eb46d-c5d1-4309-bb6d-86458eaae044.JPG)
 
+Second example: desing connection by pyCET
+--------
 
+This example is to show how to pyCET to design a connection. pyCET itself is a caluction software. But it is very powerful and the users could use it for more complicate calculations and designs.
+
+
+```python
+% cd /content/drive/MyDrive/my_project/
+import copy
+import sys
+
+sys.path.append("./pyCET_demo")
+sys.path.append("./pyCET_demo/src_pyc")
+
+from src_pyc.connection import Connection
+from src.civil_engr_tool import check_shear_yield
+from src.civil_engr_tool import check_shear_rupture
+from src.civil_engr_tool import init_tool
+from src.report import Report
+
+from src.calculation import Calculation
+
+common_data = {
+    "design method": "ASD",
+    "code": "AISC 14th"
+}
+
+# Need to initialize the module
+init_tool(common_data)
+
+web_conn = Connection()
+web_conn.set_default("web conn")
+web_conn.grade = "A36"
+web_conn.Fy = 36
+web_conn.Fu = 58
+web_conn.length = 11.5
+web_conn.thickness = 0.25
+web_conn.check_force = 33.0
+web_conn.bolt.row = 4
+web_conn.bolt.diameter = 0.75
+web_conn.bolt.type = "A325N"
+web_conn.bolt.hole_type = "Standard"
+
+dia_list = [0.5, 0.625, 0.75, 0.875, 1.0, 1.25, 1.5]
+t_list = [0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1.0, 1.25, 1.5, 2.0]
+
+found = False;
+
+for dia in dia_list:
+  if found == False:
+    for t in t_list:
+      web_conn.bolt.diameter = dia
+      web_conn.thickness = t
+      web_conn.set_data()
+      shear_yield = check_shear_yield()
+      shear_rupture = check_shear_rupture()
+
+      if( shear_yield['result'] > web_conn.check_force 
+        and shear_rupture['result'] > web_conn.check_force ):
+        found = True
+        break;
+
+# call again to make sure the equations are created
+web_conn.set_data()
+shear_yield = check_shear_yield()
+shear_rupture = check_shear_rupture()
+print(shear_yield['equations'][0]['content'])
+print(shear_rupture['equations'][0]['content'])
+```
+
+Now above code find 0.25 inch as plate thickness and 0.5 inch as bolt diameter. Comparing to AISC 14th Example II-17, the bolt diamter is smaller because we only check shear yield and shear ruputer of the plate.
