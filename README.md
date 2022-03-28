@@ -14,9 +14,11 @@ Overview of pyCET
 
 * **Developed and Maintained by Professionals** pyCET is developed and maintained by professional engineers across the world.
 
-* **Not Open Source Software** But the price is very reasonable, under 1k per seat per year. Please contact civilengrtools@gmail.com if you want to buy. 
+* **Not Open Source Software** But the price is very reasonable, under $900 per seat per year. Please contact civilengrtools@gmail.com if you want to buy. 
 
 * **Still Under Development** We are planning to finish most funtionalities by the end of 2024.
+
+* **Web site** Please check https://civilengrtools.com/ to see the CET.Calculators (another product) and pricing.
 
 Overview of pyCET_demo
 --------
